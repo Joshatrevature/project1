@@ -15,7 +15,7 @@ public class ReimbursementImpl implements ReimbursementDAO {
 	public Session session;
 
 	/**
-	 * SHOULD BE CORRECT
+	 * RETRIEVES ALL REIMBURSEMENTS
 	 */
 	@Override
 	public List<Reimbursement> getAllReimbursements() {
