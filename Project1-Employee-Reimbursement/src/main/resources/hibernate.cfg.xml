@@ -4,7 +4,7 @@
 
 <hibernate-configuration>
 	<session-factory>
-	
+
 		<property name="connection.url">jdbc:mysql://localhost:3306/p1</property>
 
 		<property name="connection.username">root</property>
