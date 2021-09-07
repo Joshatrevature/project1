@@ -21,6 +21,8 @@ public class AcceptTicketServlet extends HttpServlet{
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
 		
+		out.println("<h1>fsdad</h1>");
+		
 		ReimbursementDAO dao = ReimbursementDaoFactory.getDao();
 		
 		Reimbursement r;

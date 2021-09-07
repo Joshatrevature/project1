@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 
 			res.sendRedirect("index.html");
 
+
 		}
 
 	}

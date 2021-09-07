@@ -20,6 +20,11 @@ protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOE
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
 		
+		
+		out.println("<h1>fsdad</h1>");
+		
+		
+		
 		ReimbursementDAO dao = ReimbursementDaoFactory.getDao();
 		
 		Reimbursement r;
