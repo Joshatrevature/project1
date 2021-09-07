@@ -41,7 +41,6 @@ public class LoginServlet extends HttpServlet {
 
 			out.println("<h3>Wrong login credentials, please try again</h3>");
 
-
 		}
 
 	}

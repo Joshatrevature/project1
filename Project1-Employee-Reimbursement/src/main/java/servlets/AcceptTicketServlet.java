@@ -16,12 +16,10 @@ import model.Reimbursement;
 @jakarta.servlet.annotation.WebServlet("/accept-ticket")
 public class AcceptTicketServlet extends HttpServlet{
 	
-	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
-		
-		out.println("<h1>fsdad</h1>");
 		
 		ReimbursementDAO dao = ReimbursementDaoFactory.getDao();
 		
@@ -39,6 +37,8 @@ public class AcceptTicketServlet extends HttpServlet{
 		System.out.println(r.getReimbursementStatus());
 		
 		dao.updateReimbursement(r);
+		
+		res.sendRedirect("ManagerTicketListServlet");
 		
 		
 	}

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,24 +19,26 @@
 				<th>$ amount</th>
 				<th>Time Stamp</th>
 				<th>Description</th>
-				<th>Actions</th>
+				<th>Accept Request</th>
+				<th>Reject Request</th>
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="tickets" items="${listReimbursement}">
-			<tr>
-				<td>$(ticket.id}</td>
-				<td>${ticket.status}</td>
-				<td>${ticket.email}</td>
-				<td>${ticket.type}</td>
-				<td>${ticket.amount}</td>
-				<td>${ticket.time}</td>
-				<td>${ticket.description}</td>
-				<td>
-					<a href="edit?id=<c:out value='${ticket.id}' />">update status</a>
-					
-				</td>
-			</tr>
+			<c:forEach var="ticket" items="${listReimbursements}">
+				<tr>
+					<td><c:out value="${ticket.reimbursementId}" /></td>
+					<td><c:out value="${ticket.reimbursementStatus}" /></td>
+					<td><c:out value="${ticket.email}" /></td>
+					<td><c:out value="${ticket.reimbursementType}" /></td>
+					<td><c:out value="${ticket.dollarAmt}" /></td>
+					<td><c:out value="${ticket.submitDate}" /></td>
+					<td><c:out value="${ticket.description}" /></td>
+					<td><a href="accept-ticket?id=<c:out value='${ticket.reimbursementId}' />">Accept</a>
+
+					</td>
+					<td><a href="reject-ticket?id=<c:out value='${ticket.reimbursementId}' />">Reject</a>
+					</td>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>

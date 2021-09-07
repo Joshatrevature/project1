@@ -15,15 +15,10 @@ import model.Reimbursement;
 @WebServlet("/reject-ticket")
 public class RejectTicketServet extends HttpServlet{
 
-protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
-		
-		
-		out.println("<h1>fsdad</h1>");
-		
-		
 		
 		ReimbursementDAO dao = ReimbursementDaoFactory.getDao();
 		
@@ -41,6 +36,8 @@ protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IO
 		System.out.println(r.getReimbursementStatus());
 		
 		dao.updateReimbursement(r);
+		
+		res.sendRedirect("ManagerTicketListServlet");
 		
 	}
 	

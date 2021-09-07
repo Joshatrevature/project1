@@ -59,7 +59,7 @@ public class ReimbursementImpl implements ReimbursementDAO {
 
 		transaction = session.beginTransaction();
 
-		final String hql = "from Reimbursement were ticket_id= :id";
+		final String hql = "from Reimbursement where ticket_id= :id";
 
 		Query q = session.createQuery(hql);
 
