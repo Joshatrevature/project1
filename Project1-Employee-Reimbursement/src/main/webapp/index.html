@@ -28,36 +28,21 @@
     </form>
     </div>
         <script>
-        $(document).ready(function(){
-        	$("#Login").click(function(){
-	        	var email = $("#Username").val().trim();
-	        	var password = $("#Password").val();
-	        	// Checking for blank fields.
-	        	if( email =='' || password ==''){
-	        		$('input[type="text"],input[type="password"]');
+            $(document).ready(function(){
+                $("Login").click(function(){
+                    var email = $("#Username").val();
+                    var password = $("#Password").val();
+                    //blank check
+                    if(email=="" || password==""){
+                    $('input[type="text"],input[type="password"]');
 		        	$('input[type="text"],input[type="password"]');
-		        	alert("Please fill all fields...!!!!!!");
-	        	}else {
-		        	$.post("/Login",{ Username: email, Password:password},
-		        	function(data) {
-		        	if(data=='Invalid Email.......') {
-		        	$('input[type="text"]');
-		        	$('input[type="password"]');
-		        	alert(data);
-				        }else if(data=='Email or Password is wrong...!!!!'){
-				        	$('input[type="text"],input[type="password"]');
-				        	alert(data);
-			        	} else if(data=='Successfully Logged in...'){
-				        	$("form")[0].reset();
-				        	$('input[type="text"],input[type="password"]');
-				        	alert(data);
-				        } else{
-			        	alert(data);
-	        			}
-	        		});
-	        		}
-	        		});
-	        	});
+                    alert("Please fill both fields");
+                    }else {
+                        $.post("/Login",{ Username: email, Password: password},
+                        )
+                    }
+                })
+            })
         </script>
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
