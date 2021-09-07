@@ -4,26 +4,28 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" href="login.css">
 <title>Login Page</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form id="LoginForm" method="post" onsubmit="return false">
-        <h1 style="text-align:center;">Login Form</h1>
-        <div class="FormRow">
-            <label for="Username">Email:</label>
-            <input type="email" size="15" id="Usernaem" name="Username">
+	<form id="LoginForm" method = "post" action="Login">
+		<h1 style="text-align: center;">Login Form</h1>
+		<div class="FormRow">
+			<label for="Username">Email:</label> <input type="email" size="15"
+				id="Username" name="Username">
 
-        </div>
-        <div class="FormRow">
-              <label for="Password">Password:</label>
-              <input type="password" size="15" name="Password" id="Password" >
-        </div>
-        <div class="FormRow" id="LoginButtonDiv">
-            <input type="submit" name="Login" id="Login" value="Login">
-        </div>
-    </form>
-        <script>
+		</div>
+		<div class="FormRow">
+			<label for="Password">Password:</label> <input type="password"
+				size="15" name="Password" id="Password">
+		</div>
+		<div class="FormRow" id="LoginButtonDiv">
+			<input type="submit" name="Login" id="Login" value="Login">
+		</div>
+	</form>
+	<script>
+        
         $(document).ready(function(){
-        	$("#login").click(function(){
+        	$("#Login").click(function(){
 	        	var email = $("#Username").val();
 	        	var password = $("#Password").val();
 	        	// Checking for blank fields.
@@ -32,7 +34,7 @@
 		        	$('input[type="text"],input[type="password"]');
 		        	alert("Please fill all fields...!!!!!!");
 	        	}else {
-		        	$.post("/Login",{ email1: email, password1:password},
+		        	$.post("/Login",{ Username: email, Password:password},
 		        	function(data) {
 		        	if(data=='Invalid Email.......') {
 		        	$('input[type="text"]');
@@ -52,42 +54,7 @@
 	        		}
 	        		});
 	        	});
-    	
-           /* function login(form) {
-                let un = form.Username.value;
-                let pw = form.Password.value;
-                let xmlhttp = new XMLHttpRequest();
-                xmlhttp.open("post", "Login", true);
-                xmlhttp.onreadystatechange = function (){
-                    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        loginResults();
-                    }
-                }
-            }
-
-            window.addEventListener(window,"load", function() {
-            var loginForm = document.getElementById("LoginForm");
-            window.addEventListener(loginForm, "submit", function() {
-                    login(loginForm);
-                });
-            });
-
-            function loginResults() {
-                let loggedIn = document.getElementById("LoggedIn");
-                let badLogin = document.getElementById("BadLogin");
-                if (xmlhttp.responseText.indexOf("failed") == -1) {
-                    loggedIn.innerHTML = "Logged in as " + xmlhttp.responseText;
-                    loggedIn.style.display = "block";
-                    form.style.display = "none";
-                } else {
-                    badLogin.style.display = "block";
-                    form.Username.select();
-                    form.Username.className = "Highlighted";
-                    setTimeout(function() {
-                        badLogin.style.display = 'none';
-                    }, 3000);
-                }
-            }*/
+	        	
         </script>
 </body>
 </html>

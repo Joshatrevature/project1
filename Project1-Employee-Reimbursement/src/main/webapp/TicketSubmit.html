@@ -3,9 +3,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Ticket Submission</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form id="Submit-Ticket" onsubmit="return false">
+    <form id="Submit-Ticket" method="post" action="SubmitTicket">
         <h1>Ticket Form</h1>
         <h2>Reimbursement Type</h2>
         <div class="FormRow">
@@ -32,23 +33,14 @@
             <input type="submit">
         </div>
     </form>
-    <script>
-
-        const data = {ticket: 'Ticket', amount: 'Dollar-Amount', reason: 'Reason'};
-    
-        fetch('/SubmitTicket', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
+ <script>
+        $(document).ready(function(){
+            $("#SubmitTicket").click(function(){
+                var ticket = $("#Ticket").val();
+                var amount = $("#Dollar-Amount").val();
+                var reason = $("#Reason").val();
+                $.post("/SubmitTicket",{Ticket: ticket, DollarAmount: dollaramount, Reason:reason})
+            })
         })
-        .then(Response => Response.json())
-        .then(data => {
-            console.log('Success:', data);
-        } )
-        .catch((error) => {
-            console.error('Error:', error);
-        });
     </script>
 </body>
