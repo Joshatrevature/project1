@@ -13,7 +13,7 @@ import model.User;
 public class LoginServlet extends HttpServlet {
 	private UserDaoImpl dao;
 
-	// technically finished; may need to be revised
+	
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
 
 		res.setContentType("text/html");
@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 			}
 		} else {
 
-			out.println("<h3>Wrong login credentials, please try again</h3>");
+			res.sendRedirect("index.html");
 
 		}
 

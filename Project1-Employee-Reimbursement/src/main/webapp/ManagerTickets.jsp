@@ -6,41 +6,65 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Manager Ticket view</title>
+<link rel="stylesheet" href="table.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous">
 </head>
 <body>
-	<table align="center" id="table-1">
-		<caption>Tickets</caption>
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Status</th>
-				<th>Employee Email</th>
-				<th>Type</th>
-				<th>$ amount</th>
-				<th>Time Stamp</th>
-				<th>Description</th>
-				<th>Accept Request</th>
-				<th>Reject Request</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="ticket" items="${listReimbursements}">
-				<tr>
-					<td><c:out value="${ticket.reimbursementId}" /></td>
-					<td><c:out value="${ticket.reimbursementStatus}" /></td>
-					<td><c:out value="${ticket.email}" /></td>
-					<td><c:out value="${ticket.reimbursementType}" /></td>
-					<td><c:out value="${ticket.dollarAmt}" /></td>
-					<td><c:out value="${ticket.submitDate}" /></td>
-					<td><c:out value="${ticket.description}" /></td>
-					<td><a href="accept-ticket?id=<c:out value='${ticket.reimbursementId}' />">Accept</a>
 
-					</td>
-					<td><a href="reject-ticket?id=<c:out value='${ticket.reimbursementId}' />">Reject</a>
-					</td>
-				</tr>
+	<h1 style="text-align: center;">Tickets</h1>
+	<div class="divTable">
+		<div class="divTableHeading">
+			<div class="divTableRow">
+				<div class="divTableHead">Id</div>
+				<div class="divTableHead">Status</div>
+				<div class="divTableHead">Employee Email</div>
+				<div class="divTableHead">Type</div>
+				<div class="divTableHead">$ amount</div>
+				<div class="divTableHead">Time Stamp</div>
+				<div class="divTableHead">Description</div>
+				<div class="divTableHead">Accept Request</div>
+				<div class="divTableHead">Reject Request</div>
+			</div>
+		</div>
+		<div class="divTableBody">
+			<c:forEach var="ticket" items="${listReimbursements}">
+				<div class="divTableRow">
+					<div class="divTableCell">
+						<c:out value="${ticket.reimbursementId}" />
+					</div>
+					<div class="divTableCell">
+						<c:out value="${ticket.reimbursementStatus}" />
+					</div>
+					<div class="divTableCell">
+						<c:out value="${ticket.email}" />
+					</div>
+					<div class="divTableCell">
+						<c:out value="${ticket.reimbursementType}" />
+					</div>
+					<div class="divTableCell">
+						<c:out value="${ticket.dollarAmt}" />
+					</div>
+					<div class="divTableCell">
+						<c:out value="${ticket.submitDate}" />
+					</div>
+					<div class="divTableCell">
+						<c:out value="${ticket.description}" />
+					</div>
+					<div class="divTableCell">
+						<a
+							href="accept-ticket?id=&lt;c:out value='${ticket.reimbursementId}' /&gt;">Accept</a>
+					</div>
+					<div class="divTableCell">
+						<a
+							href="reject-ticket?id=&lt;c:out value='${ticket.reimbursementId}' /&gt;">Reject</a>
+					</div>
+				</div>
 			</c:forEach>
-		</tbody>
-	</table>
+		</div>
+	</div>
 </body>
 </html>
